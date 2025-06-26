@@ -6,6 +6,8 @@ def main():
     st.title("TailorTalk - Appointment Booking Agent")
     st.markdown("Hi! I'm TailorTalk, your friendly assistant for scheduling appointments. Just tell me when you'd like to book a meeting, and I'll handle the rest!")
 
+    BACKEND_URL = "https://tailortalk-agent.onrender.com"  # ✅ Use deployed backend
+
     if "messages" not in st.session_state:
         st.session_state.messages = []
 
@@ -19,11 +21,11 @@ def main():
             st.markdown(prompt)
 
         try:
-            response = requests.post("http://127.0.0.1:8001/chat", json={"input": prompt})
+            response = requests.post(f"{BACKEND_URL}/chat", json={"input": prompt})
             response.raise_for_status()
             assistant_response = response.json().get("response", "Sorry, something went wrong.")
-        except requests.RequestException:
-            assistant_response = "Sorry, I couldn't connect to the server. Please try again."
+        except requests.RequestException as e:
+            assistant_response = f"Sorry, I couldn't connect to the server. Please try again.\n\nError: {str(e)}"
 
         st.session_state.messages.append({"role": "assistant", "content": assistant_response})
         with st.chat_message("assistant"):
