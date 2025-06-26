@@ -28,7 +28,7 @@ Hosting	Render (backend), Streamlit Cloud (UI)
 
 🛠️ Local Setup Instructions
 1. Clone the Repo
-git clone https://github.com/your-username/tailortalk.git
+(https://github.com/StudentTahseenraza/tailortalk-agent.git)
 cd tailortalk
 
 3. Create a virtual environment and activate it
