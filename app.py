@@ -6,7 +6,7 @@ def main():
     st.title("TailorTalk - Appointment Booking Agent")
     st.markdown("Hi! I'm TailorTalk, your friendly assistant for scheduling appointments. Just tell me when you'd like to book a meeting, and I'll handle the rest!")
 
-    BACKEND_URL = "https://tailortalk-agent.onrender.com"  # ✅ Use deployed backend
+    API_URL = "https://tailortalk-agent-1.onrender.com"  # ✅ Use deployed backend
 
     if "messages" not in st.session_state:
         st.session_state.messages = []
